@@ -1,0 +1,4 @@
+# AWS-COST-NOTIFICATION
+
+`AWS-COST-NOTIFICATION` は AWS の月額利用料金を通知する Lambda です。
+
