@@ -1,3 +1,17 @@
 # AWS-COST-NOTIFICATION
 
 `AWS-COST-NOTIFICATION` は AWS の月額利用料金を通知する Lambda です。
+
+# deploy
+```sh
+$ docker build --platform linux/arm64 -t docker-image:test .
+$ aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 704164288482.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-notification
+$ docker tag docker-image:test 704164288482.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-notification:latest
+$ docker push 704164288482.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-notification:latest
+$ aws lambda update-function-code \
+  --function-name CostNotification \
+  --image-uri 704164288482.dkr.ecr.ap-northeast-1.amazonaws.com/aws-cost-notification:latest \
+  --architectures arm64
+$ aws lambda invoke --function-name CostNotification response.json
+
+```

@@ -34,7 +34,7 @@ func sumCost(cost *costexplorer.GetCostAndUsageOutput) (total string){
 	return total
 }
 
-func  handleRequest(ctx context.Context, event json.RawMessage) error {
+func  handler(ctx context.Context, event json.RawMessage) error {
 	log.Println("コスト取得バッチ 開始")
 	c, err := cost.NewExplorerClient("ap-northeast-1")
 	if err != nil {
@@ -55,9 +55,7 @@ func  handleRequest(ctx context.Context, event json.RawMessage) error {
 	return nil
 }
 
-
-
 func main() {
-	lambda.Start(handleRequest)
+	lambda.Start(handler)
 }
 
