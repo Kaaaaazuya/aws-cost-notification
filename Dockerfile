@@ -8,6 +8,7 @@ RUN go mod download -x
 
 COPY ./cmd ./cmd
 COPY ./cost ./cost
+COPY ./line ./line
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o app cmd/main.go && \
     chmod +x app
 

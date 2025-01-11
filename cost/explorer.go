@@ -30,7 +30,6 @@ func GetCostAndUsage(ctx context.Context, client explorerClient, start *string, 
 	return client.GetCostAndUsage(ctx, createGetCostAndUsageInput(start, end))
 }
 
-
 // createGetCostAndUsageInput returns the input for the cost explorer
 func createGetCostAndUsageInput(start *string, end *string) *costexplorer.GetCostAndUsageInput {
 	return &costexplorer.GetCostAndUsageInput{
