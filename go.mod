@@ -3,7 +3,7 @@ module github.com/Kaaaaazuya/aws-cost-notification
 go 1.23.4
 
 require (
-	github.com/aws/aws-lambda-go v1.47.0
+	github.com/aws/aws-lambda-go v1.48.0
 	github.com/aws/aws-sdk-go-v2/config v1.29.14
 	github.com/aws/aws-sdk-go-v2/service/costexplorer v1.49.0
 )
